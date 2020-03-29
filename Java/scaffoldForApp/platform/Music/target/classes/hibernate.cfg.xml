@@ -1,0 +1,23 @@
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory name="music">
+        <property name="show_sql">true</property>
+        <!--根据entity生成数据库脚本-->
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        <!--hibernate执行脚本文件，在数据库创建数据库对象-->
+        <!--<property name="hibernate.hbm2ddl.import_files"></property>-->
+
+        <property name="connection.autocommit">true</property>
+        <!--connection property-->
+        <property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost/music</property>
+        <property name="connection.username">root</property>
+        <property name="connection.useSSL">FALSE</property>
+        <property name="connection.serverTimezone">GMT</property>
+        <property name="connection.password">123456</property>
+        <!--<property name="connection.isolation">4</property>-->
+        <!--<property name="connection.pool_size">5</property>-->
+        <mapping resource="hibernate-config/user.hbm.xml"></mapping>
+    </session-factory>
+</hibernate-configuration>

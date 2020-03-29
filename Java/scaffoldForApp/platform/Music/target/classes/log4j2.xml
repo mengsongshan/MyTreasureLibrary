@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Configuration property :
+     status:
+     name:
+     packages:
+     monitorInterval: config file automatic reconfiguration
+
+     name="MusicLog" monitorInterval="30"
+-->
+<Configuration status="debug" >
+    <Appenders>
+        <!--Appenders定义输出目的地，输出格式，过滤输出格式-->
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <RollingFile name="RollingFile" fileName="logs/debug.log"
+                     filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout><Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </Policies>
+        </RollingFile>
+
+
+    </Appenders>
+
+    <Loggers>
+         <!--在Loggers中定义不同类型的Logger输出，不同的包下的内容可以使用不同的Appender输出到不同的文件，设置不同的日志输出级别
+         ，并且可对输出内容进行过滤，指定是否迭代输出。Loggers中必须设置一个根Root，定义应用中所有的日志输出，定义基准格式-->
+       <!-- <Logger name="com.water.music.service" level="debug" additivity="false">
+            <AppenderRef ref="STDOUT"/>
+        </Logger>-->
+
+        <Root level="debug">
+            <!--<AppenderRef ref="RollingFile"/>-->
+            <AppenderRef ref="STDOUT"/>
+        </Root>
+
+    </Loggers>
+
+</Configuration>
+
+        <!--
+        <Configuration packages="" status="" strict="" name="" advertiser="" shutdownTimeout="" schema="">
+            <CustomLevels>
+                <CustomLevel name="" intLevel=""></CustomLevel>
+            </CustomLevels>
+
+            <Properties>
+                <Property name=""></Property>
+            </Properties>
+
+            <Filters>
+                <Filter type="" level="" marker="" onMatch="" onMismatch="">
+                    <KeyValuePair key="" value=""></KeyValuePair>
+                </Filter>
+            </Filters>
+
+            <ThresholdFilter level="" onMatch="" onMismatch="">	</ThresholdFilter>
+
+            <Appenders>
+                <Appender type="" name="" fileName="">
+                    <Layout type="" pattern="">
+                        <Pattern></Pattern>
+                    </Layout>
+                    <Filters>
+                        <Filter type="" level="" marker="" onMatch="" onMismatch="">
+                            <KeyValuePair key="" value=""></KeyValuePair>
+                        </Filter>
+                    </Filters>
+                </Appender>
+
+                <Console name="" target="" follow="">
+                    <PatternLayout pattern=""></PatternLayout>
+                </Console>
+            </Appenders>
+
+            <Loggers>
+                <Logger name="" level="" additivity="">
+                    <Filters>
+                        <Filter type="" level="" marker="" onMatch="" onMismatch="">
+                            <KeyValuePair key="" value=""></KeyValuePair>
+                        </Filter>
+                    </Filters>
+                    <AppenderRef ref=""></AppenderRef>
+                </Logger>
+                <Root level="">
+                    <AppenderRef ref=""></AppenderRef>
+                </Root>
+            </Loggers>
+        </Configuration>
+-->

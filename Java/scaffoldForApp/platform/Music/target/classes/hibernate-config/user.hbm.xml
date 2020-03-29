@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" package="com.water.music.entity.userinfo">
+
+    <class name="User" table="m_user" >
+        <id name="id" type="long" column="id">
+            <generator class="assigned"/>
+        </id>
+        <property name="name" column="name"  />
+        <property name="nickName" column="nickName" />
+        <property name="age" column="age" />
+        <property name="sex" column="sex"/>
+        <set name="addresses">
+            <key column="address_id"></key>
+            <one-to-many class="Address"></one-to-many>
+        </set>
+
+    </class>
+
+    <class name="Address" table="m_address">
+        <id name="id" type="long" column="address_id">
+            <generator class="assigned"/>
+        </id>
+        <property name="country" column="country" ></property>
+        <property name="province" column="province"></property>
+        <property name="city" column="city"></property>
+        <property name="region" column="region"></property>
+        <property name="town" column="town"></property>
+        <property name="village" column="village"></property>
+        <property name="extension" column="extension"></property>
+    </class>
+
+    <class name="Contract" table="m_contract">
+        <id name="id"></id>
+        <property name="phone" column="phone"></property>
+        <property name="fixPhone" column="fixPhone"></property>
+        <property name="mail" column="mail"></property>
+        <property name="fax" column="fax"></property>
+        <property name="extension" column="extension"></property>
+    </class>
+
+</hibernate-mapping>

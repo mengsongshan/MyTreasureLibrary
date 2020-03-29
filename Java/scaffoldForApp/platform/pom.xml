@@ -1,0 +1,351 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>com.eternity.water</groupId>
+  <artifactId>platform</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0</version>
+  <name>Platform Maven project</name>
+  <url>http://maven.apache.org</url>
+  
+  <modules>
+	<module>serviceAdapter</module>
+	<module>serviceManager</module>
+	<module>Music</module>
+  </modules>
+
+  <!--
+	parent-pom的作用：
+   问题一、parent-pom的dependencyManagement里面声明的dependency，如果在child-pom里面不声明不能依赖到。
+	  那这样就说明parent-pom里面声明，在child-pom里面同样声明，那其作用就是在parent-pom里面管理版本
+在child-pom不用关注版本。不仅仅是依赖jar的管理，插件的管理也是如此。Spring IO platform平台也是出于
+这个版本管理的目的而构建。 
+	问题二、一般parent-pom里会设置一些公用配置属性，供引用这个目的在于何处？
+	    一些公司开源的一系列jar供外界使用，一个开源项目会发布一些列jar，他们的版本都是一样的，可以
+设置变量，不用每次都固定写死，这样版本升级的时候，便于维护。所以多处重复引用的，都是变量声明之。
+    
+    
+  -->
+  <properties>
+	  <spring.common.version>4.3.5.RELEASE</spring.common.version>
+	  <struts2.common.version>2.5.14.1</struts2.common.version>
+	  <hibernate.common.version>5.2.12.Final</hibernate.common.version>
+	  <slf4j.common.version>1.7.25</slf4j.common.version>
+	  <log4j2.commmon.version>2.9.1</log4j2.commmon.version>
+	  <poi.version>3.16</poi.version>
+  </properties>
+  
+  <dependencyManagement>
+	    <dependencies>
+		    
+			<!--单元测试-->
+			<dependency>
+			  <groupId>junit</groupId>
+			  <artifactId>junit</artifactId>
+			  <version>4.12</version>
+			</dependency>
+			
+			<!--日志工具，日志使用slf4j日志框架抽象，可以根据需求切换的日志框架-->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.common.version}</version>
+			</dependency>
+			<!--Log4j适配,使用不同的日志框架需要加载不同的适配，具体适配见SLF4J官网说明-->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-slf4j-impl</artifactId>
+				<version>${log4j2.commmon.version}</version>
+			</dependency>
+			<!--Log4j2-->
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-core</artifactId>
+				<version>${log4j2.commmon.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-api</artifactId>
+				<version>${log4j2.commmon.version}</version>
+			</dependency>
+			<!--Spring-->
+			<dependency>
+			    <!--Spring事务管理-->
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+				<version>${spring.common.version}</version>
+			</dependency>
+			<dependency>
+				<!--Spring核心-->
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring.common.version}</version>
+			</dependency>
+			<dependency>
+			    <!--Spring适配关系数据库-->
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-orm</artifactId>
+				<version>${spring.common.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.common.version}</version>
+			</dependency>
+			<dependency>
+			    <!--Spring WEB支持-->
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${spring.common.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>${spring.common.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${spring.common.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+				<version>${spring.common.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>${spring.common.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jms</artifactId>
+				<version>${spring.common.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-core</artifactId>
+				<version>${spring.common.version}</version>
+			</dependency>
+			<!--Hibernate-->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>${hibernate.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-ehcache</artifactId>
+				<version>${hibernate.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate.javax.persistence</groupId>
+				<artifactId>hibernate-jpa-2.1-api</artifactId>
+				<version>1.0.2.Final</version>
+			</dependency>
+
+			<!--Struts2-->
+			<dependency>
+				<groupId>org.apache.struts</groupId>
+				<artifactId>struts2-core</artifactId>
+				<version>${struts2.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.struts</groupId>
+				<artifactId>struts2-sitemesh-plugin</artifactId>
+				<version>${struts2.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.struts</groupId>
+				<artifactId>struts2-convention-plugin</artifactId>
+				<version>${struts2.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.struts</groupId>
+				<artifactId>struts2-spring-plugin</artifactId>
+				<version>${struts2.common.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.struts</groupId>
+				<artifactId>struts2-json-plugin</artifactId>
+				<version>${struts2.common.version}</version>
+			</dependency>
+
+			<!--J2EE-->
+			<dependency>
+				<groupId>geronimo-spec</groupId>
+				<artifactId>geronimo-spec-j2ee</artifactId>
+				<version>1.4-rc4</version>
+				<scope>provided</scope>
+			</dependency>
+			
+			<!--常用工具方法-->
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>2.6</version>
+			</dependency>
+
+			<!--加密解密数字签名-->
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>1.11</version>
+			</dependency>
+
+			<!--DOM解析-->
+			<dependency>
+				<groupId>dom4j</groupId>
+				<artifactId>dom4j</artifactId>
+				<version>1.6.1</version>
+			</dependency>
+
+			<!--缓存-->
+			<!--Redis client-->
+			<dependency>
+				<groupId>redis.clients</groupId>
+				<artifactId>jedis</artifactId>
+				<version>2.9.0</version>
+			</dependency>
+
+			<!--数据库驱动-->
+			<!--mysql connector-->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>8.0.9-rc</version>
+			</dependency>
+
+			<!--数据库连接池-->
+			<dependency>
+				<groupId>commons-dbcp</groupId>
+				<artifactId>commons-dbcp</artifactId>
+				<version>1.4</version>
+			</dependency>
+
+			<!--对象池-->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-pool2</artifactId>
+				<version>2.5.0</version>
+			</dependency>
+
+
+			<!--html parser-->
+			<dependency>
+				<groupId>org.htmlparser</groupId>
+				<artifactId>htmlparser</artifactId>
+				<version>2.1</version>
+			</dependency>
+
+			<!--任务调度框架-->
+			<dependency>
+				<groupId>org.quartz-scheduler</groupId>
+				<artifactId>quartz</artifactId>
+				<version>2.2.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.quartz-scheduler</groupId>
+				<artifactId>quartz-jobs</artifactId>
+				<version>2.2.1</version>
+			</dependency>
+
+			<!-- 谷歌增强Jre (线程池)-->
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>24.0-jre</version>
+			</dependency>
+
+			<!-- office parser-->
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-scratchpad</artifactId>
+				<version>${poi.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi</artifactId>
+				<version>${poi.version}</version>
+			</dependency>
+
+			<!--常用工具API-->
+			<dependency>
+				<groupId>org.codehaus.plexus</groupId>
+				<artifactId>plexus-utils</artifactId>
+				<version>3.0.24</version>
+			</dependency>
+
+			<!--时间日期处理工具-->
+			<dependency>
+				<groupId>joda-time</groupId>
+				<artifactId>joda-time</artifactId>
+				<version>2.9.9</version>
+			</dependency>
+
+			<!--JSON转换工具-->
+			<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>1.2.51</version>
+			</dependency>
+
+			<!--ali 微服务框架-->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>dubbo</artifactId>
+				<version>2.6.4</version>
+			</dependency>
+
+			<!--
+			      异步事件驱动的网络应用开发框架 netty
+			      netty3.x以Jboss为包名，netty4.x以io.netty为包名
+			 -->
+			<dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-all</artifactId>
+				<version>4.1.30.Final</version>
+			</dependency>
+		</dependencies>
+  </dependencyManagement>
+  
+  <build>
+      <pluginManagement>
+			<plugins>  
+				<plugin>  
+				    <!--指定编译器版本，也可以在maven的setting.xml文件中放开改变全局的编译器设置-->
+					<groupId>org.apache.maven.plugins</groupId>  
+					<artifactId>maven-compiler-plugin</artifactId>  
+					<configuration>  
+						<source>1.8</source>  
+						<target>1.8</target>  
+					</configuration>  
+				</plugin>  
+				
+				
+			</plugins> 
+	   </pluginManagement>
+	   
+    <finalName>Platform</finalName>
+  </build>
+</project>

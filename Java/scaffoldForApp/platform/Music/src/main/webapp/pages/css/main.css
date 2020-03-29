@@ -1,0 +1,44 @@
+.mHeader{
+    background-color: #666666;
+    height: 50px;
+    width: 100%;
+}
+
+.mBody{
+    height:800px;
+    width: 100%;
+}
+
+.mNav{
+    background-color: #5f3f3f;
+    height:800px;
+    width: 19%;
+    float: left;
+}
+
+.mContent{
+    background-color: #777620;
+    height:800px;
+    width: 50%;
+    /*float: right;*/
+    float: left;
+}
+
+.test1{
+    background-color: #003eff;
+    height:800px;
+    width: 10%;
+    float: left;
+}
+.test2{
+    background-color: #f1a899;
+    height:800px;
+    width: 10%;
+    float: left;
+}
+
+.mBottom{
+    background-color: black;
+    height:30px;
+    width: 100%;
+}

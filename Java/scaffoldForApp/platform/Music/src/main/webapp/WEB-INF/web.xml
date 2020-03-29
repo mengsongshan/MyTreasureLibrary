@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+
+<display-name>Music Web Application</display-name>
+
+
+ <!--    own custom dispatcher
+  <servlet>
+    <servlet-name>MessageRouter</servlet-name>
+    <servlet-class>com.water.music.core.MessageRouter</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MessageRouter</servlet-name>
+    <url-pattern>/service/*</url-pattern>
+  </servlet-mapping>
+
+    <filter>
+        <filter-name>CharsetFilter</filter-name>
+        <filter-class>com.water.music.core.filter.CharsetFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharsetFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>BadReqFilter</filter-name>
+        <filter-class>com.water.music.core.filter.BadReqFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>BadReqFilter</filter-name>
+        <url-pattern>/service/*</url-pattern>
+    </filter-mapping>
+
+-->
+
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+
+  <error-page>
+    <error-code>401</error-code>
+    <location>/WEB-INF/crazy/401.jsp</location>
+  </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/crazy/401.jsp</location>
+    </error-page>
+</web-app>

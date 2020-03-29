@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Music/Music.iml" filepath="$PROJECT_DIR$/Music/Music.iml" />
+      <module fileurl="file://$PROJECT_DIR$/serviceAdapter/target/maven-archiver/maven-archiver.iml" filepath="$PROJECT_DIR$/serviceAdapter/target/maven-archiver/maven-archiver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Music/target/maven-archiver/maven-archiver (1).iml" filepath="$PROJECT_DIR$/Music/target/maven-archiver/maven-archiver (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/serviceManager/target/maven-archiver/maven-archiver (2).iml" filepath="$PROJECT_DIR$/serviceManager/target/maven-archiver/maven-archiver (2).iml" />
+      <module fileurl="file://$PROJECT_DIR$/platform.iml" filepath="$PROJECT_DIR$/platform.iml" />
+      <module fileurl="file://$PROJECT_DIR$/questionLearn/questionLearn.iml" filepath="$PROJECT_DIR$/questionLearn/questionLearn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/serviceAdapter/serviceAdapter.iml" filepath="$PROJECT_DIR$/serviceAdapter/serviceAdapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/serviceManager/serviceManager.iml" filepath="$PROJECT_DIR$/serviceManager/serviceManager.iml" />
+    </modules>
+  </component>
+</project>

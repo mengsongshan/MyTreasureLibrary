@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="Company" class="com.water.music.entity.userinfo.Company"></bean>
+    <bean id="Relation" class="com.water.music.entity.userinfo.Relation"></bean>
+    <bean id="JobType" class="com.water.music.entity.userinfo.JobType"></bean>
+    <bean id="User" class="com.water.music.entity.userinfo.User"></bean>
+    <bean id="Address" class="com.water.music.entity.userinfo.Address"></bean>
+    <bean id="Friend" class="com.water.music.entity.userinfo.Friend"></bean>
+    <bean id="Picture" class="com.water.music.entity.userinfo.Picture"></bean>
+    <bean id="Hobby" class="com.water.music.entity.userinfo.Hobby"></bean>
+    <bean id="Family" class="com.water.music.entity.userinfo.Family"></bean>
+    <bean id="Job" class="com.water.music.entity.userinfo.Job"></bean>
+    <bean id="Contract" class="com.water.music.entity.userinfo.Contract"></bean>
+</beans>
