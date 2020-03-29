@@ -25,7 +25,9 @@
 	    一些公司开源的一系列jar供外界使用，一个开源项目会发布一些列jar，他们的版本都是一样的，可以
 设置变量，不用每次都固定写死，这样版本升级的时候，便于维护。所以多处重复引用的，都是变量声明之。
     
-    
+    问题三、插件依赖管理
+
+    问题四、依赖管理
   -->
   <properties>
 	  <spring.common.version>4.3.5.RELEASE</spring.common.version>
@@ -45,7 +47,15 @@
 			  <artifactId>junit</artifactId>
 			  <version>4.12</version>
 			</dependency>
-			
+
+			<!-- lombok -->
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.18.12</version>
+				<scope>provided</scope>
+			</dependency>
+
 			<!--日志工具，日志使用slf4j日志框架抽象，可以根据需求切换的日志框架-->
 			<dependency>
 				<groupId>org.slf4j</groupId>
@@ -74,6 +84,7 @@
 				<artifactId>log4j-api</artifactId>
 				<version>${log4j2.commmon.version}</version>
 			</dependency>
+
 			<!--Spring-->
 			<dependency>
 			    <!--Spring事务管理-->
@@ -126,12 +137,6 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-aop</artifactId>
-				<version>${spring.common.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-jdbc</artifactId>
 				<version>${spring.common.version}</version>
 			</dependency>
 
@@ -326,6 +331,35 @@
 				<artifactId>netty-all</artifactId>
 				<version>4.1.30.Final</version>
 			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>3.5.4</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core -->
+			<dependency>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-core</artifactId>
+				<version>1.4.0</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis-spring</artifactId>
+				<version>2.0.4</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper -->
+			<dependency>
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper</artifactId>
+				<version>5.1.11</version>
+			</dependency>
+
 		</dependencies>
   </dependencyManagement>
   

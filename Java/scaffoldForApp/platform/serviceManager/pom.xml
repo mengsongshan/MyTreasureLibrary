@@ -17,17 +17,28 @@
   <url>http://maven.apache.org</url>
   
   <dependencies>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
 
-
     <dependency>
       <groupId>com.eternity.water</groupId>
       <artifactId>questionLearn</artifactId>
       <version>1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
     </dependency>
   </dependencies>
   
