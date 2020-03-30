@@ -1,12 +1,10 @@
 package com.water.mappers;
 
-import com.water.entitys.AbstractEntity;
-
 import java.util.List;
 import java.util.Map;
 
 public
-interface BaseMapper<T extends AbstractEntity> {
+interface BaseMapper<T> {
 
     /**
      * 添加

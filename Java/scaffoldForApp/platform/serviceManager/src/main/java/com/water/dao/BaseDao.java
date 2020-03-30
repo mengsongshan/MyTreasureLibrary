@@ -1,5 +1,6 @@
 package com.water.dao;
 
+import com.github.pagehelper.PageInfo;
 import com.water.entitys.AbstractEntity;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.Map;
  * @param <T>
  */
 public
-interface BaseDao<T> {
+interface BaseDao<T extends AbstractEntity> {
 
     /**
      * 添加
@@ -43,7 +44,7 @@ interface BaseDao<T> {
      * @param uuid
      * @return
      */
-    <T extends AbstractEntity> T get(String uuid);
+    T get(String uuid);
 
     /**
      * 批量添加

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.water.mappers.UserMapper">
+
+    <!--结果集映射-->
+    <resultMap id="BaseResultMap" type="com.water.entitys.User">
+
+    </resultMap>
+
+    <!--代码片段，可以在select, insert, update, delete 中include -->
+    <sql id="Base_Cols_List">
+        name, nickName, password
+    </sql>
+
+    <select id="get">
+
+    </select>
+
+    <select id="list">
+
+    </select>
+
+    <update id="update">
+
+    </update>
+
+    <delete id="delete">
+
+    </delete>
+
+    <insert id="add">
+
+    </insert>
+
+
+</mapper>

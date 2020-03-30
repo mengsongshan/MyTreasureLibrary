@@ -1,5 +1,6 @@
 package com.water.dao.impl;
 
+import com.github.pagehelper.PageInfo;
 import com.water.dao.BaseDao;
 import com.water.entitys.AbstractEntity;
 import com.water.mappers.BaseMapper;
@@ -11,7 +12,7 @@ public abstract
 class BaseDaoImpl<T extends AbstractEntity> implements BaseDao<T> {
 
     protected abstract
-    BaseMapper getBaseMapper();
+    BaseMapper<T> getBaseMapper();
 
     @Override
     public
@@ -34,7 +35,7 @@ class BaseDaoImpl<T extends AbstractEntity> implements BaseDao<T> {
     @Override
     public
     T get(String uuid) {
-        return (T) getBaseMapper().get(uuid);
+        return getBaseMapper().get(uuid);
     }
 
     @Override
@@ -62,8 +63,7 @@ class BaseDaoImpl<T extends AbstractEntity> implements BaseDao<T> {
     }
 
     @Override
-    public
-    List<T> page(Integer pageNum, Integer pageSize, Map<String, Object> params) {
+    public PageInfo<T> page(Integer pageNum, Integer pageSize, Map<String, Object> params) {
         return null;
     }
 }
