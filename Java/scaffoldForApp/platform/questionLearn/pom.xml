@@ -54,7 +54,7 @@
 			<dependency>
 			  <groupId>junit</groupId>
 			  <artifactId>junit</artifactId>
-			  <version>4.12</version>
+			  <version>4.13.1</version>
 			</dependency>
 			
 			<!--日志工具，日志使用slf4j日志框架抽象，可以根据需求切换的日志框架-->
