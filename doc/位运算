@@ -1,3 +1,7 @@
+参考资料：
+    https://github.com/beyondfengyu/SnowFlake/blob/master/SnowFlake.java
+    
+
 位运算即是在位级别进行操作的技术，合适的位运算能够帮助我们得到更快地运算速度与更小的内存使用。
     测试第 k 位: s & (1 << k)
     设置第 k 位: s |= (1 << k)
