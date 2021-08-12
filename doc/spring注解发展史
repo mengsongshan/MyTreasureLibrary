@@ -1,0 +1,80 @@
+Spring注解的发展史：
+  1.2 
+    @Transactional (tx)
+    @ManagedAttribute @ManagedOperation @ManagedOperationParameter @ManagedOperationParameters @ManagedResource 
+    
+  2.0
+    @Configurable @Required(弃用于5.1) @Repository @Order
+    @ManagedNotification  @ManagedNotifications 
+    @DirtiesContext @IfProfileValue @Repeat @Timed (test)
+    
+  2.5
+    @Autowired @Qualifier @Scope @Component @Controller @Service
+    @ProfileValueSourceConfiguration @Rollback @AfterTransaction @BeforeTransaction @ContextConfiguration @TestExecutionListeners (test)
+    @InitBinder @ModelAttribute @RequestMapping @RequestParam (web)
+    
+  3.0
+    @Value @Bean @Configuration @Import @ImportResource @Lazy @Primary @DependsOn @ManagedMetric 
+    @DateTimeFormat @NumberFormat
+    @Async @Scheduled 
+    @Mapping @CookieValue @ExceptionHandler @PathVariable @RequestBody @RequestHeader @ResponseBody @ResponseStatus (web)
+    
+  3.1
+    @Role @PropertySource  @Validated @Profile
+    @CacheEvict @CachePut @Cacheable @Caching @EnableCaching 
+    @EnableSpringConfigured  @EnableAspectJAutoProxy @EnableLoadTimeWeaving
+    @EnableAsync @EnableScheduling    
+    @EnableTransactionManagement (tx)
+    @ActiveProfiles (test)
+    @RequestPart @EnableWebMvc (web)
+    
+  3.2 
+    @EnableMBeanExport      
+    @WebAppConfiguration (test)
+    @ControllerAdvice @MatrixVariable (web)
+    
+  3.2.2
+    @ContextHierarchy (test)
+      
+  4.0
+    @Conditional @Description @PropertySources 
+    @Schedules 
+    @DestinationVariable @Header @Headers @MessageExceptionHandler @MessageMapping @Payload @SendTo @SendToUser @SubscribeMapping (spring-message)
+    @RestController (web)    
+    @EnableWebSocket @EnableWebSocketMessageBroker (socket) 
+    
+  4.1 
+    @Lookup  @CacheConfig  
+    @UsesJava7 UsesJava8 (弃用于5.0)
+    @UsesSunHttpServer (弃用于5.1)
+    @EnableJms @JmsListener @JmsListeners (jms)
+    @Sql @SqlConfig @SqlGroup @BootstrapWith @TestPropertySource @TestPropertySources (test)
+    
+  4.2
+    @AliasFor 
+    @Commit (test)
+    @TransactionalEventListener (tx)  
+    @CrossOrigin (web)
+    
+  4.3
+    @ComponentScans  @UsesSunMisc 
+    @DeleteMapping @GetMapping @PatchMapping @PostMapping @PutMapping @RequestAttribute @RestControllerAdvice @SessionAttribute @SessionAttributes (web)
+    @ApplicationScope @RequestScope @SessionScope (web)
+    
+  4.2
+    @EventListener  
+    
+  5.0 
+    @Indexed @Nullable @NonNull @NonNullApi @NonNullFields   
+    @SpringJUnitWebConfig @DisabledIf @EnabledIf @SpringJUnitConfig  (test)
+    @EnableWebFlux (web-flux)
+    
+  5.2 
+    @ConnectMapping (spring-message)  
+    @AfterTestClass @AfterTestExecution @AfterTestMethod @BeforeTestClass @BeforeTestExecution @BeforeTestMethod @PrepareTestInstance @SqlMergeMode @TestConstructor (test)
+    
+  5.2.5
+    @DynamicPropertySource  (test)  
+    
+  5.3
+    @NestedTestConfiguration  (test)  
