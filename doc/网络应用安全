@@ -1,2 +1,76 @@
 apk安全：
    https://security.tencent.com/index.php/blog/msg/109
+
+一、	扫描监测工具
+					1.	Nmap
+					Nmap是Network Mapper的简称，Nmap一直是网络发现和攻击界面测绘的首选工具。从主机发现和端口扫描，到操作系统检测和IDS规避/欺骗，Nmap是大大小小黑客行动的基本工具。（此外appscan和Safe3WVS等扫描工具就不说了）
+					用途：主机发现，端口扫描，侦测运行的服务类型及版本信息、侦测操作系统与设备类型等信息
+					2.	Aircrack-ng
+					Aircrack-ng是那种只要评估无线网络，就会经常用到的工具。Aircrack-ng是无线评估工具套装，覆盖数据包捕捉和攻击（包含破解WAP和WEP）。
+					用途：评估无线网络，进行网络侦测，数据包嗅探，WEP和WPA/WPA2-PSK破解
+
+
+
+二、	漏洞分析和利用工具
+					3.	Burp Suite
+					Burp Suite 是用于攻击web 应用程序的集成平台，包含许多工具包括spider、proxy和intruder等工具。Burp Suite为这些工具设计了许多接口，以加快攻击应用程序的过程。它提供全面的网络爬取和扫描功能（支持超过100个漏洞——囊括OWASP十大），多攻击点，类似的工具是OWASP ZAP。
+					用途：截取代理，爬虫，密码爆破等
+
+					4.	Sqlmap
+					SQLmap是一款“自动化SQL注入和数据库接管工具”。SQLmap支持所有常见数据库平台——MySQL、MSSQL、Access、DB2、PostgreSQL、Sybase、SQLite，还有6中不同攻击方法：boolean-based blind, time-based blind, error-based, union query-based, stacked queries and out-of-band。
+					用途：sql自动化注入
+
+					5.	BeEF（浏览器漏洞利用框架）
+					BeEF是一款流行的web框架攻击平台，它的全称是 the Browser exploitation framework project。通过XSS这个简单的漏洞，BeEF可以通过一段编制好的javascript控制目标主机的浏览器，通过浏览器拿到各种信息并且扫描内网信息，同时能够配合metasploit进一步渗透主机。
+					用途：专注于浏览器的渗透测试工具集框架
+
+					6.	Immunity Debugger
+					mmunity Debugger 是帮助安全人员编写漏洞利用程序、分析恶意软件和逆向工程二进制文件的工具。
+					用途：加速漏洞利用程序的开发，辅助漏洞挖掘以及恶意软件分析
+
+					7.	Metasploit
+					Metasploit是一款开源的安全漏洞检测工具，框架包含了世界上最大而且经过测试攻击的代码数据库。该框架也是迄今为止使用Ruby脚本语言构建的最复杂项目之一。
+					用途：漏洞检测
+
+					8.  Social Engineer Toolkit(SET)
+					社会工程工具箱(SET)是一款跨平台的开源软件，利用人的因素进行渗透测试，可以模拟人类发送电子邮件、JAVA插件等攻击方式，只有命令行界面。可以结合Metasploit使用。
+					用途：利用SET的工具进行社会工程类型攻击
+
+					9.	Wireshark
+					Wireshark是世界上最流行的网络分析工具。这个强大的工具可以捕捉网络中的数据，并为用户提供关于网络和上层协议的各种信息。与很多其他网络工具一样，Wireshark也使用pcap network library来进行封包捕捉。可破解局域网内QQ、邮箱、msn、账号等的密码。
+					用途：网络流量分析
+
+三、	其他攻击工具
+					10.	Wifiphisher
+					Wifiphisher是一种WiFi黑客工具，可以对无线/ WiFi网络执行快速的自动网络钓鱼攻击，目的是发现用户和密码凭据。与无线工具（与其他工具相比）的区别在于，它启动了一个社会工程攻击，这是一个完全不同的攻击向量，当尝试违反WiFi网络时。
+					用途：WiFi密码破解
+
+					11.	THC-Hydra
+					THC-Hydra是一款网络登录破解器，支持多个服务。实际上，它支持的服务数量超过48个，包括思科auth、思科enable、IMAP、IRC、LDAP、MS-SQL、MYSQL、Rlogin、Rsh、RTSP和SSH(v1和v2)。它非常快速和灵活，新模块易于添加。该工具使研究人员和安全顾问能够展示远程获得对系统未经授权的访问是多么容易。
+					用途：登录破解器
+
+					12.	JOHN THE RIPPER
+					ohn the Ripper是一个免费开源并可以快速进行密码破解的工具，用于在已知密文的情况下尝试破解出明文的破解密码软件，支持目前大多数的加密算法，如DES、MD4、MD5等。它支持多种不同类型的系统架构，包括Unix、Linux、Windows、DOS模式、BeOS和OpenVMS，主要目的是破解不够牢固的Unix/Linux系统密码
+					用途：已知密文情况下破解出系统明文密码
+
+					13. Lc5
+					LC5是国外一种很有名的密码破解软件，能破解用LM加密的SAM。可用它猜解2000\Xp\2003密码。它是著名的美国计算机安全公司Stake出品的Window/Unix密码查找软件LC4/LC5。
+					用途：密码破解
+
+					14. DirBuster
+					DirBuster是一个多线程的基于Java的应用程序设计用于暴力破解Web 应用服务器上的目录名和文件名的工具 。
+					用途：web目录遍历
+
+					15. Akana
+					Akana是一款移动应用安全分析工具，安全分析人员能够还原移动应用的真实面貌，在线调试、深度剖析恶意代码。
+					用途：移动APK扫描工具
+
+四．资源收集（主要是域名收集）
+				16. subfinder
+				SubFinder是一个子域发现工具，可以为任何目标枚举海量的有效子域名。它已成为sublist3r项目的继承者。SubFinder使用被动源，搜索引擎，Pastebins，Internet Archives等来查找子域，然后使用灵感来自于altdns的置换模块来生成排列，并使用强大的bruteforcing引擎快速的解析它们
+				用途：子域名收集工具
+					17. Sublist3r
+				Sublist3r是目前比较热门的工具，它使用各种资源枚举子域名。Sublist3r会列举出使用Google、Yahoo、Bing、Baidu和Ask等搜索引擎查找到的子域名。Sublist3r还会列举使用Netcraft、Virustotal、ThreatCrowd、DNSdumpster和ReverseDNS查找到的子域名。
+				用途：子域名枚举
+				18. Layer子域名挖掘机
+				用途：子域名挖掘
