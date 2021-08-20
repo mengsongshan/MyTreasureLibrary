@@ -16,3 +16,47 @@
     取出最小非 0 位（Extract lowest set bit）: s & (-s)
     取出最小 0 位（Extract lowest unset bit）: ~s & (s + 1)
     交换值: x ^= y; y ^= x; x ^= y;
+
+
+按位读写：将数据按内存读写，不关心存储的值在10进制中表现为什么，仅关心其在内存中的表现，直接使用位操作符，实现数据的按位读写。
+    读取给定数据value中，自起始位begin开始的count个位，返回读取到的数据
+    unsigned short readBit(unsigned short value, int begin, int count)
+    {
+        if(begin+count-1 > 16)
+            return 0;//首先保证取值范围不会越界
+        begin = begin-1;//外部从1开始，内部从0开始
+        if(begin < 0 || count < 1 || count > 16)//7位16-1得到最大索引
+            return 0;
+        unsigned short tmp = 0xffff;
+        unsigned short off = 16-count;
+        tmp <<= off;//先左移，得到需要取的位数位置
+        off = off-begin;
+        tmp >>= off;//再右移，则得到取起始位
+        unsigned short ret = value & tmp;
+        ret >>= begin;
+
+        return ret;
+    }
+    以给定的数据value，更改原数据src中，自begin位开始的共count个位，返回修改后的数据：
+    unsigned short writeBit(unsigned short value, int begin, int count, unsigned short src)
+    {
+        if(begin+count-1 > 16)
+            return 0;//首先保证取值范围不会越界
+        begin = begin-1;//外部从1开始，内部从0开始
+        if(begin < 0 || count < 1 || count > 16)//7位16-1得到最大索引
+            return 0;
+        unsigned short max = qPow(2,count)-1;//幂函数，取得2的n次方的最大值
+        if(value > max)
+            value = max;//最大值,避免其它位被意外修改
+        unsigned short tmp = 0xffff;
+        unsigned short off = 16-count;
+        tmp <<= off;//先左移，得到需要取的位数位置
+        off = off-begin;
+        tmp >>= off;//再右移，则得到取起始位
+        tmp = ~tmp;
+        unsigned short srcTmp = tmp & src;
+        value <<= begin;
+        unsigned short ret = value | srcTmp;
+
+        return ret;
+    }
