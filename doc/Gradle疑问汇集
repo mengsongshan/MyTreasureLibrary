@@ -3,3 +3,5 @@
 2、dependency  implementation compileOnly
      https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_plugin_and_dependency_management
      
+3、gradle仓库阿里镜像
+     https://developer.aliyun.com/mvn/guide
