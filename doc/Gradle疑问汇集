@@ -12,3 +12,6 @@
 5、Gradle Wrapper使用的环境变量     
     GRADLE_USER_HOME  --用于存在其下载的gradle以及仓库的存放位置
     distributionUrl  --可以修改该地址，改变gradle的下载地址，需要是一个文件服务器
+
+6、仓库镜像的配置
+       仓库镜像的配置可以配置在本项目中，也可以配置全局的仓库镜像，全局的仓库镜像配置在init.gradle文件中，项目的可以配置在项目的build.gradle文件中。
