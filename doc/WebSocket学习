@@ -1,5 +1,15 @@
 理论：
+    https://blog.csdn.net/lldouble/article/details/80742082
     https://cloud.tencent.com/developer/article/1532220
-    
+    https://blog.csdn.net/shangmingtao/article/details/75810099
+    https://cloud.tencent.com/developer/article/1826192
+    https://cloud.tencent.com/developer/article/1076547
+    https://cloud.tencent.com/developer/article/1024641
+    https://cloud.tencent.com/developer/article/1452203
+    http://www.52im.net/
 样例：
    https://github.com/zifangsky/WebSocketDemo
+
+应用场景：
+   聊天弹幕，实时提醒，客户端同步，实时数据展示，远程交互，扫描返回，位置实时跟踪，在线状态
+     参：https://www.goeasy.io/
