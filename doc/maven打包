@@ -1,0 +1,70 @@
+整理三种maven打包方式：
+    1、使用maven-dependency-plugin和maven-jar-plugin，使用maven-dependency-plugin将依赖jar归集到一个目录，maven-jar-plugin中配置manifest，classpath配置上归集目录即可，这种方式部署时需要
+ 同时将jar和依赖目录部署，具体的pom如下：
+     			<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.2.0</version>
+            <configuration>
+              <archive>
+                <manifest>
+                  <addClasspath>true</addClasspath>
+                  <mainClass>com.xxx.Application</mainClass>
+                  <classpathPrefix>lib/</classpathPrefix>
+                </manifest>
+              </archive>
+            </configuration>
+          </plugin>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>3.2.0</version>
+            <executions>
+              <execution>
+                <id>copy-dependency</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>copy-dependencies</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <outputDirectory>${project.build.directory}/lib/</outputDirectory>
+            </configuration>
+          </plugin>
+
+2、使用maven-assembly-plugin将本项目文件和依赖打包在一起
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>3.2.0</version>
+          <configuration>
+            <archive>
+              <manifest>
+                <mainClass>com.xxxx.Application</mainClass>
+              </manifest>
+            </archive>
+            <descriptorRefs>
+              <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+            <!--这个属性很必要，没有这个属性会打出两个jar，一个是项目jar，一个是依赖jar-->
+            <appendAssemblyId>false</appendAssemblyId>
+          </configuration>
+          <executions>
+            <execution>
+              <id>make-assembly</id>
+              <phase>package</phase>
+              <goals>
+                <goal>single</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        
+   3、使用maven-shade-plugin插件，这个插件也是将依赖和本项目文件分开，功能丰富，暂未具体研究
+         http://maven.apache.org/plugins/maven-shade-plugin/examples/resource-transformers.html
+         
+   4、最好是使用spring-boot，spring-boot提供了一个很强悍的打包方式，具体参见：
+          https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/
+   
