@@ -88,3 +88,4 @@
    4、最好是使用spring-boot，spring-boot提供了一个很强悍的打包方式，具体参见：
           https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/
    
+工程引用
