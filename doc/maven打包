@@ -64,6 +64,26 @@
         
    3、使用maven-shade-plugin插件，这个插件也是将依赖和本项目文件分开，功能丰富，暂未具体研究
          http://maven.apache.org/plugins/maven-shade-plugin/examples/resource-transformers.html
+         默认配置，会生成两个jar，一个是项目代码jar，一个是依赖jar：
+         	<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.2.4</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<!--此属性默认为true，会默认生成一个依赖pom-->
+							<createDependencyReducedPom>false</createDependencyReducedPom>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+            
+           譬如： original-user-center-1.0.0.jar  user-center-1.0.0.jar
          
    4、最好是使用spring-boot，spring-boot提供了一个很强悍的打包方式，具体参见：
           https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/
