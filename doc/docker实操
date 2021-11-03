@@ -1,0 +1,14 @@
+1、我想查看某个镜像的从容器角度能够观察到的所有文件，即容器运行镜像时，容器中的文件结构
+       docker run --name export-test busybox echo Export Hello   -- 能导出容器，不能导出镜像，所有先有镜像创建容器，而后将容器导出为压缩文件
+       docker export export-test.tar export-test
+       docker rm export-test     -- 清理容器
+       
+2、从容器制作新镜像       
+        docker run -it --name image-dev ubuntu  /bash/bin  --创建Ubuntu容器
+        apt-get update --更新Ubuntu软件源
+        apt-get -y install git --安装git
+        exit  --退出Ubuntu容器
+        docker diff image-dev --查看容器中文件系统的改动
+        docker commit -a "mm@126.com" -m "add git" image-dev ubuntu-git  --提交修改
+        docker rm -vf image-dev  --删除容器
+        docker images --查看镜像列表
