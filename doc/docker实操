@@ -4,11 +4,24 @@
        docker rm export-test     -- 清理容器
        
 2、从容器制作新镜像       
-        docker run -it --name image-dev ubuntu  /bash/bin  --创建Ubuntu容器
+        docker run -it --name image-dev ubuntu  /bin/bash  --创建Ubuntu容器
         apt-get update --更新Ubuntu软件源
         apt-get -y install git --安装git
         exit  --退出Ubuntu容器
         docker diff image-dev --查看容器中文件系统的改动
-        docker commit -a "mm@126.com" -m "add git" image-dev ubuntu-git  --提交修改
-        docker rm -vf image-dev  --删除容器
+        docker commit -a "mm@126.com" -m "add git" image-dev ubuntu-git  --提交修改，将容器提交为一个镜像，将容器中的改动写入镜像。Docker In Action书中，这样子提交默认的入口点不是Git，但是我是
+ 基于docker的20.10.8版本，该版本中，这样子提交，安装的git默认就是入口点，这样间接说了docker的更新，更考虑用户的体验，不同版本的docker，细节可能会有变化。
+        -- 如果入口点不是Git，说明你启动原始容器时附带的命令也被提交到了新镜像了（就是第一步中的/bin/bash），那你需要重新设置入口点：docker run --name cmd-git --entrypoint git ubuntu-git;
+docker commit -m "set entrypoint" -a "mm@126.com" cmd-git ubuntu-git  ;   docker rm -vf cmd-git;
+        docker rm -vf image-dev  --清理容器
         docker images --查看镜像列表
+
+3、使用docker commit可以提交文件系统快照，所有的环境变量，工作目录，开放端口的集合，所有的卷定义，容器入口点，命令和参数
+        docker run --name env-busybox -e ENV_PATH=mengmiao -e ENV_TEST=mm busybox
+        docker commit env-busybox env-busybox
+        docker images
+        docker inspect env-busybox   --在Config中可以看到提交的环境变量
+        
+        docker run --name entry-busybox --entrypoint "/bin/sh" busybox
+        docker commit entry-busybox entry-busybox
+        docker inspect entry-busybox  --Entrypoint被设置为/bin/sh
