@@ -25,3 +25,9 @@ docker commit -m "set entrypoint" -a "mm@126.com" cmd-git ubuntu-git  ;   docker
         docker run --name entry-busybox --entrypoint "/bin/sh" busybox
         docker commit entry-busybox entry-busybox
         docker inspect entry-busybox  --Entrypoint被设置为/bin/sh
+        
+4、将应用所在的容器暴露于网络中
+
+4、暴露应用容器的端口
+
+5、一个容器中的应用使用另一个容器中的应用
