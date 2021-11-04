@@ -41,4 +41,7 @@ docker commit -m "set entrypoint" -a "mm@126.com" cmd-git ubuntu-git  ;   docker
        docker run -d -P --name redisServer3 redis  --将容器镜像声明暴露的端口暴露，随机绑定到主机端口。譬如Redis的Dockerfile暴露6379端口，此命令将容器的6379随机绑定到主机的端口
        docker port redisServer3 
        
+       docker run -d --name redisServer1 --expose 6380 -P redis  --命令参数--expose同Dockerfile中的expose指令，暴露容器中的一个端口，使用-P参数，将容器暴露的端口全部随机绑定到主机端口之上
+       docker port redisServer1
+       
 6、一个容器中的应用使用另一个容器中的应用
