@@ -28,6 +28,17 @@ docker commit -m "set entrypoint" -a "mm@126.com" cmd-git ubuntu-git  ;   docker
         
 4、将应用所在的容器暴露于网络中
 
-4、暴露应用容器的端口
+5、暴露应用容器的端口
+       docker run -d --name redisServer --expose 6379 -P redis  --将容器端口6379暴露，随机绑定主机端口
+       docker port redisServer   --查看容器和主机的端口映射情况，可以使用主机端口访问容器的端口
 
-5、一个容器中的应用使用另一个容器中的应用
+       docker run -d --name redisServer1 -p 8989:6379 redis  --将容器端口6379暴露，绑定主机固定端口
+       docker port redisServer
+       
+       docker run -d  -p 6379 -p 5000 -p 9999 --name redisServer2  redis  --将容器的6379/5000/9999端口全部暴露，随机绑定到主机端口
+       docker port redisServer2
+       
+       docker run -d -P --name redisServer3 redis  --将容器镜像声明暴露的端口暴露，随机绑定到主机端口。譬如Redis的Dockerfile暴露6379端口，此命令将容器的6379随机绑定到主机的端口
+       docker port redisServer3 
+       
+6、一个容器中的应用使用另一个容器中的应用
