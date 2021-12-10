@@ -34,7 +34,7 @@
 	  <struts2.common.version>2.5.14.1</struts2.common.version>
 	  <hibernate.common.version>5.2.12.Final</hibernate.common.version>
 	  <slf4j.common.version>1.7.25</slf4j.common.version>
-	  <log4j2.commmon.version>2.9.1</log4j2.commmon.version>
+	  <log4j2.commmon.version>2.15.0</log4j2.commmon.version>
 	  <poi.version>3.16</poi.version>
   </properties>
   
