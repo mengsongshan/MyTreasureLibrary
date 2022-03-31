@@ -30,7 +30,7 @@
     问题四、依赖管理
   -->
   <properties>
-	  <spring.common.version>4.3.5.RELEASE</spring.common.version>
+	  <spring.common.version>5.3.18</spring.common.version>
 	  <struts2.common.version>2.5.14.1</struts2.common.version>
 	  <hibernate.common.version>5.2.12.Final</hibernate.common.version>
 	  <slf4j.common.version>1.7.25</slf4j.common.version>
