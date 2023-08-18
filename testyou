@@ -1,0 +1,1 @@
+curl -X GET -H "authorization: 960dce7b-817d-4e28-b779-cb938d226a16"  https://api.ceegic.com/api/biddingProject/?title=&customer=&dateRange=&design=&designName=&page=1&pageSize=1000
