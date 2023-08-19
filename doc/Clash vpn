@@ -1,0 +1,16 @@
+Web Address:
+     https://cv2.info/
+Web Controller:
+     http://clash.razord.top/#/proxies
+
+DownLoad Address:
+     https://github.com/Dreamacro/clash/releases
+
+Unzip:
+   tgiz -d clash-linux-amd64-v1.18.0.gz
+
+Start:
+   mkdir clash
+   wget https://objects.githubusercontent.com/github-production-release-asset-2e65be/136815833/787de684-ed21-446b-9619-c02e3919a43c?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230818%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230818T112531Z&X-Amz-Expires=300&X-Amz-Signature=6232ba74345f0575c2e429a9bdfbdd5caf346d21b4375a590fe252f95ea7bd13&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=136815833&response-content-disposition=attachment%3B%20filename%3Dclash-linux-amd64-v1.18.0.gz&response-content-type=application%2Foctet-stream
+   wget -O config.yml https://one.cv2api.com/link/BipbC35auPukbc0G?clash=1&log-level=info 
+   ./clash-linux-amd64-v1.18.0 -d . -f config.yml
