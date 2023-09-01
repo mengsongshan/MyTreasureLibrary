@@ -1,0 +1,9 @@
+Overview
+               Websocket JSR-356 API
+Spring-websocket   tomcat-websocket  jetty-websocket  undertow-websocket
+
+Use
+
+All above integrate by spring-boot.  spring-boot start this by auto configuration.  Entry point is <WebSocketMessagingAutoConfiguration> .
+all base sprint-boot . the entry point is auto configuration.
+
