@@ -3,3 +3,13 @@ Open Web App Security Project
     https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/
     https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ff649874(v=pandp.10)?redirectedfrom=MSDN
     
+https://www.vulbox.com/   漏洞盒子
+
+tools: 
+https://github.com/chaitin/xray/releases/tag/1.8.4
+https://github.com/Qianlitp/crawlergo/releases/tag/v0.4.0
+https://nmap.org/download.html
+https://github.com/lijiejie/subDomainsBrute/releases/tag/v1.4
+https://github.com/H4ckForJob/dirmap/archive/refs/heads/master.zip
+https://github.com/securego/gosec/releases/tag/v2.13.1
+https://github.com/returntocorp/semgrep/releases/tag/v0.113.0
