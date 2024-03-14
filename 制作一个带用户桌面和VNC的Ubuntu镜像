@@ -58,4 +58,4 @@ git clone https://github.com/novnc/noVNC
 git clone https://github.com/novnc/websockify-js.git
 
 -- start novnc
-node /opt/nonvc/websockify-js/websockify/websockify.js -web /opt/nonvc/noVNC/ 9000 172.17.0.2:5901
+node /opt/nonvc/websockify-js/websockify/websockify.js --web /opt/nonvc/noVNC/ 9000 172.17.0.2:5901
