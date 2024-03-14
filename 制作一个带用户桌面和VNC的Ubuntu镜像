@@ -13,3 +13,24 @@ apt install tigervnc-standalone-server
 vncpasswd --modify vnc server password
 
 -- config vnc server
+vi ~/.vnc/xstartup
+    #!/bin/sh
+    unset SESSION_MANAGER
+    unset DBUS_SESSION_BUS_ADDRESS
+    exec startxfce4
+
+chmod u+x ~/.vnc/xstartup
+
+vi ~/.vnc/config
+  geometry=1920x1080
+  dpi=96
+
+-- start vnc server
+vncserver
+
+-- view vnc list
+vncserver -list
+
+-- delete vnc instance history 
+rm ~/.vnc/*.log *.pid
+rm -rf /tmp/.X1-lock /tmp/.X11-unix/
