@@ -34,3 +34,28 @@ vncserver -list
 -- delete vnc instance history 
 rm ~/.vnc/*.log *.pid
 rm -rf /tmp/.X1-lock /tmp/.X11-unix/
+
+
+--------------------------------novnc install------------------------------
+reference doc : https://www.cnblogs.com/minseo/p/15949100.html
+
+-- install nvm nodejs版本管理器
+git clone https://gitee.com/mirrors/nvm
+cd nvm
+bash install.sh
+source ~/.bashrc
+
+nvm install node
+
+npm install ws
+npm install optimist
+npm install mime-types
+
+mkdir /opt/novnc
+cd novnc
+
+git clone https://github.com/novnc/noVNC  
+git clone https://github.com/novnc/websockify-js.git
+
+-- start novnc
+node /opt/nonvc/websockify-js/websockify/websockify.js -web /opt/nonvc/noVNC/ 9000 172.17.0.2:5901
