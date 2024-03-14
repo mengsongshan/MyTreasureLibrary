@@ -1,0 +1,15 @@
+docker pull ubuntu -- 基础镜像
+docker run -it ubuntu  --基于容器制作新镜像
+apt update  
+apt upgrade  -- 不更新刚下载的Ubuntu镜像不能安装软件
+-- 安装常用软件
+apt install vi
+apt install git
+
+--安装用户桌面软件和VNC server
+apt install xfce4 xfce4-goodies
+apt install tigervnc-standalone-server
+
+vncpasswd --modify vnc server password
+
+-- config vnc server
