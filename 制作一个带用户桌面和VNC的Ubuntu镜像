@@ -25,8 +25,8 @@ vi ~/.vnc/config
   geometry=1920x1080
   dpi=96
 
--- start vnc server
-vncserver
+-- start vnc server, -localhost no很重要，不然外部不能访问
+vncserver -localhost no -geometry 1280x720 -depth 24
 
 -- view vnc list
 vncserver -list
