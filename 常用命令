@@ -1,0 +1,4 @@
+####################### wget usage ##################################
+wget -P /opt/research/tools https://download-cdn.jetbrains.com/idea/ideaIC-2023.3.5.tar.gz  -- 下载到指定目录
+wget https://download-cdn.jetbrains.com/idea/ideaIC-2023.3.5.tar.gz  -- 下载当前目录
+wget https://download-cdn.jetbrains.com/idea/ideaIC-2023.3.5.tar.gz -O /opt/research/tools/ideaIC.tar.gz --下载到指定目录并重命名
