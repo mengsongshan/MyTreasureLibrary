@@ -7,3 +7,7 @@ wget https://download-cdn.jetbrains.com/idea/ideaIC-2023.3.5.tar.gz -O /opt/rese
 ##################### tar #########################
 tar -zxvf ideaIC-2023.3.5.tar.gz
 tar xf ~/Downloads/flutter_linux_vX.X.X-stable.tar.xz
+tar -zxvf ideaIC-2023.3.5.tar.gz -C /opt/tools
+
+######################## unzip ##########################
+RUN unzip -d /opt/software-tools/ /opt/software-tools/apache-tomcat-10.1.19-windows-x64.zip
