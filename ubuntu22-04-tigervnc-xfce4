@@ -1,0 +1,47 @@
+FROM ubuntu:latest
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    xfce4 \
+    xfce4-goodies \
+    tigervnc-standalone-server \
+    wget \
+    gpg \
+    libxss1 \
+    libappindicator1 \
+    libindicator7 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y vim openjdk-8-jre
+
+RUN echo 'root:12345678' | chpasswd
+RUN groupadd user &&  useradd -m -s /bin/bash  -g user user
+
+USER user
+RUN  mkdir -p /home/user/Desktop && mkdir -p /home/user/Documents && mkdir -p /home/user/Downloads && mkdir -p /home/user/Pictures && \
+    mkdir -p /home/user/.vnc 
+# COPY config /home/user/.vnc/
+COPY xstartup  /home/user/.vnc/
+COPY passwd /home/user/.vnc/
+
+USER root
+RUN chown -R user:user /home/user/.vnc/
+
+RUN mkdir -p /usr/local/share/dev/start
+
+COPY startup.sh /usr/local/share/dev/start/ 
+COPY update.py /usr/local/share/dev/start/
+
+RUN mkdir -p /root/.vnc
+# COPY config /root/.vnc/
+COPY xstartup  /root/.vnc/
+COPY passwd /root/.vnc/
+
+RUN chmod u+x /home/user/.vnc/xstartup && chmod u+x /root/.vnc/xstartup
+RUN chmod u+x /usr/local/share/dev/start/startup.sh
+
+
+EXPOSE 5901
+WORKDIR /usr/local/share/dev/start
+Cmd ["/bin/sh", "-c", "chmod 0755 /usr/bin/pkexec"]
+ENTRYPOINT ["/bin/bash","startup.sh"]
