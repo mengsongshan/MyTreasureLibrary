@@ -1,3 +1,4 @@
+-----------------------------------------------Dockerfile-------------------------------------------------------------
 FROM ubuntu:latest
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
@@ -40,8 +41,25 @@ COPY passwd /root/.vnc/
 RUN chmod u+x /home/user/.vnc/xstartup && chmod u+x /root/.vnc/xstartup
 RUN chmod u+x /usr/local/share/dev/start/startup.sh
 
-
 EXPOSE 5901
 WORKDIR /usr/local/share/dev/start
 Cmd ["/bin/sh", "-c", "chmod 0755 /usr/bin/pkexec"]
 ENTRYPOINT ["/bin/bash","startup.sh"]
+
+-------------------------------------------------xstartup------------------------------------------------------
+#!/bin/sh
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+exec startxfce4
+
+------------------------------------------------startup.sh----------------------------------------
+#!/bin/bash
+su - user -c "vncserver :1 -localhost no -geometry 1280x720 -depth 24"
+sleep 1d
+
+------------------------------------------------passwd---------------------
+进入容器，执行vncpasswd生成，然后拷贝到容器外，在Dockerfile中在复制进去
+
+------------------------------------------------config----------------------
+config中配置了vncserver启动的参数项。这个文件是个可选的存在，没有会使用默认。参数扩充可见 vncserver -help
+一开始不了解这个东西，然后在config中配置了一个vncserver中不存在的metry选项，导致vncserver启动参数报错，说不存在该参数，但是vncserver启动的命令行中又不存，定位了两天。
