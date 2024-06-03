@@ -2,7 +2,7 @@
 apt update && apt upgrade
 apt install ubuntu-desktop
 systemctl set-default graphical.target 
-systemctl start graphical.target
+systemctl start graphical.target -- start desktop
 
 
 -- xrdp安装
@@ -11,7 +11,8 @@ sudo apt install xrdp
 sudo systemctl status xrdp
 sudo adduser mm ssl-cert
 vi /etc/xrdp/xrdp.ini
-
+    [Xorg]
+       modify username and password
 vi /etc/xrdp/.xsessionrc
      export GNOME_SHELL_SESSION_MODE=ubuntu
      export XDG_CURRENT_DESKTOP=ubuntu:GNOME
