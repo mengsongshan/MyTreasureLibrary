@@ -19,3 +19,33 @@ vi /etc/xrdp/.xsessionrc
 
 https://linux.die.net/man/5/xrdp.ini
 https://cloud.tencent.com/developer/article/2355160 xrdp 配置
+
+------xrdp协议中文问题，亦即直接处理Unicode码问题
+https://github.com/neutrinolabs/xrdp/issues/2788
+
+-- 我遇到此问题是构建最新分支代码xrdp代码，没有构建xorgxrdp导致。 同时编译最新版本的xrdp和xorgxrdp即可解决该问题
+https://github.com/neutrinolabs/xrdp/issues/2580  
+
+-- 构建xrdp和xorgxrdp指导-------------------------------------------------------------
+https://github.com/neutrinolabs/xrdp/wiki/Building-on-Debian-8
+
+构建实战
+   先构建xrdp，后构建xorgxrdp，最后设置xrdp服务并启动
+apt install pkg-config libibus-1.0-dev  libmp3lame-dev libjpeg-dev libfuse-dev libpixman-1-dev 
+
+git clone --recursive https://github.com/neutrinolabs/xrdp
+./bootstrap
+./configure --enable-devel-logging --enable-fuse --enable-ibus --enable-jpeg --enable-pixman
+
+make
+make install
+
+apt install xserver-xorg-dev
+wget https://github.com/neutrinolabs/xorgxrdp/releases/download/v0.10.1/xorgxrdp-0.10.1.tar.gz
+./bootstrap
+./configure
+make
+make install
+
+systemctl enable xrdp
+systemctl start xrdp
