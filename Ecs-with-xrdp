@@ -47,5 +47,10 @@ wget https://github.com/neutrinolabs/xorgxrdp/releases/download/v0.10.1/xorgxrdp
 make
 make install
 
+--- 设置所有用户可用 anybody
+dpkg-reconfigure xserver-xorg-legacy
+
+-- 使用中文输入法时，系统上不能存在fcitx输入法框架，仅存ibus更好。xrdp的Unicode输入基于ibus。
+
 systemctl enable xrdp
 systemctl start xrdp
